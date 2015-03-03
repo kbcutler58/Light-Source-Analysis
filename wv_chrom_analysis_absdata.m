@@ -132,7 +132,7 @@ for waves = 1:29
             elseif (strfind(D_mat3, 'Conc (SSFDPM):')) == 1
                 broadband_fit_data_raw =dlmread(filename,'\t',[92 1 99 nfiles]);
             elseif (strfind(D_mat4, 'Conc (SSFDPM):')) == 1
-                broadband_fit_data_raw =dlmread(filename,'\t',[56 1 63 nfiles]);
+                broadband_fit_data_raw =dlmread(filename,'\t',[55 1 62 nfiles]);
             elseif (strfind(D_mat5, 'Conc (SSFDPM):')) == 1
                 broadband_fit_data_raw =dlmread(filename,'\t',[37 1 44 nfiles]);
             end
@@ -195,61 +195,3 @@ for waves = 1:29
             save(OutputFile,'PatientData')
         end
 end
-%             
-%             %% db files
-%             % outputfile = strcat('wvanalysis_SUM_itr',num2str(((z-1)*5)+zz),'.asc');
-%             cd('C:\Users\Kyle\Downloads\DOSI data for wv LG testing')
-%             fileoutputname = strcat('Patient',filename(1:16),'_ABS3.asc');
-%             fid=fopen(fileoutputname,'a');
-%             % fid=fopen(outputfile,'w');
-%             % fid=fopen(outputfile,'a');
-%             %fprintf(fid, 'patientID \tdate \tposition \twv \tmua \tdmua \tmus \tdmus \tfitmethod \tcomment\n');
-%             %for i = 1:length(chrom.names),disp(sprintf('[%s]\t= %3.2f +/- %2.3f %s', chrom.names{i}, conc(i), conc_err(i), chrom.units{i})); end
-%             fprintf(fid,'\t%s',num2str(testwvs));
-%             fprintf(fid,'\n');
-%             for j=1:nfiles
-%                 fprintf(fid,'\t%s',headers{1}{j+1});
-%             end
-%             fprintf(fid,'\n');
-%             for t = 1:4
-%                 for j=1:nfiles
-%                 fprintf(fid,'\t%f',DataTags(t,j));
-%                 end
-%                 fprintf(fid,'\n');
-%             end
-%             for i=1:length(fdpmchrom.names)
-%                 fprintf(fid,'%s',fdpmchrom.names{i});
-%                 for j=1:nfiles
-%                     fprintf(fid,'\t%f',fdpmfit(j).phy(1,i));
-%                 end
-%                 fprintf(fid,'\n');
-%                 for j=1:nfiles
-%                     fprintf(fid,'\t%f',broadband_fit_data(i,j));%fdpmfit(j).phy(1,i));
-%                 end
-%                 fprintf(fid,'\n');
-%                 for j=1:nfiles
-%                     fprintf(fid,'\t%f',(fdpmfit(j).phy(1,i))-(broadband_fit_data(i,j)));%fdpmfit(j).phy(1,i));
-%                 end
-%                 fprintf(fid,'\n');
-%                 for j=1:nfiles
-%                     fprintf(fid,'\t%f',(((fdpmfit(j).phy(1,i))-(broadband_fit_data(i,j)))/(broadband_fit_data(i,j))*100));%fdpmfit(j).phy(1,i));
-%                 end
-%                 fprintf(fid,'\n');
-%             end
-%             fprintf(fid,'\n');
-%             
-%             fclose(fid);
-%             outputfile = strcat('wvanalysis_Feb24_1_results_ABS3','.asc');            
-%             fid = fopen(outputfile,'a');
-%             fprintf(fid,'\t%s', folders(k+2).name);
-%             fprintf(fid,'\t%s', num2str(testwvs));
-% %             fprintf(fid,'\t%s', 'Analysis Total');
-%             for i=1:length(fdpmchrom.names)
-%                fprintf(fid,'\t%f', mean(newFitArray(i,:)-oldFitArray(i,:)));
-%                fprintf(fid,'\t%f', std(newFitArray(i,:)-oldFitArray(i,:)));
-%                fprintf(fid,'\t%f', mean(((newFitArray(i,:)-oldFitArray(i,:))./oldFitArray(i,:))*100));
-%                fprintf(fid,'\t%f', std(((newFitArray(i,:)-oldFitArray(i,:))./oldFitArray(i,:))*100));             
-%             end
-%             fprintf(fid,'\n');
-%             fclose(fid);
-%         end
