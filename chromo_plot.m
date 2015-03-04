@@ -90,11 +90,11 @@ end
     set(hline,'Color','k')
  
     
-% cd('C:\Users\Kyle\Downloads\DOSI data for wv LG testing\Analysis Pictures')
-% h = gcf;
-% % savestring = strcat('ChromDist ',num2str(patientSelect),'case',num2str(waveSelect(1)),' Calf','.jpg');
-% savestring = strcat('ChromDist ',num2str(patientSelect),' Case All',' Arm','.jpg');
-% saveas(h,savestring);
+cd('C:\Users\Kyle\Downloads\DOSI data for wv LG testing\Analysis Pictures')
+h = gcf;
+% savestring = strcat('ChromDist ',num2str(patientSelect),'case',num2str(waveSelect(1)),' Calf','.jpg');
+savestring = strcat('ChromDist ',num2str(patientSelect),' Case All',' Breast 4wv','.jpg');
+saveas(h,savestring);
 
 % close all
     
